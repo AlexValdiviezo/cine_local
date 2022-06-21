@@ -7,14 +7,16 @@ export const InputMovie = ({setInput, setLte, setGte}) =>{
     const [value, setValue] = useState('');
     
     useEffect(() => {
-        if(value.length > 0){
-            setInput(value);
-        }
+        setInput(value);
     }, [value])
     
 
     const changeValue = (e) => {
-        setValue(e.target.value)
+        if(e.target.value.length>0){
+            setValue(e.target.value)
+        }else{
+            setValue('');
+        }
     }
 
     const handleInputSubmit = (event) => {
